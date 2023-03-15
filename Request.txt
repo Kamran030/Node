@@ -1,0 +1,78 @@
+// !GET REQUEST
+// var http = require("http");
+
+// function requestListener(request, response) {
+//   console.log(request.url, request.method, request.headers);
+//   console.log(response.statusCode);
+//   response.end();
+// }
+
+// var server = http.createServer(requestListener);
+
+// server.listen(3000);
+// console.log("REQUEST");
+
+
+
+
+
+
+
+// !POST REQUEST
+
+// var http = require("http");
+
+
+
+// var server = http.createServer((request,response)=>{
+//   response.setHeader( "Content-Type","text/html");
+//   response.statusCode = 200;
+//   response.statusMessage = "OK"
+
+//   response.write("<h1>Home Page</h1>")
+//   response.end()
+// });
+
+// server.listen(3000);
+// console.log("REQUEST");
+
+
+
+
+
+
+
+
+
+
+
+
+
+// !Request different pages
+
+var http = require("http");
+
+var server = http.createServer((request, response) => {
+  
+if(request.url == "/"){
+  response.writeHead(200,{"Content-Type": "text/html"})
+  response.write("<h1>Home Page</h1>")
+  response.end();
+
+}
+else if (request.url == "/blogs"){
+  response.writeHead(200,{"Content-Type": "text/html"})
+  response.write("<h1>Blog Page</h1>")
+  response.end();
+}else{
+  response.writeHead(404,{"Content-Type": "text/html"})
+  response.write("<h1>404 Page</h1>")
+  response.end();
+}
+});
+
+server.listen(3000);
+console.log("REQUEST");
+
+
+
